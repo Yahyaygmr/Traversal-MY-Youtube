@@ -11,6 +11,13 @@ namespace DataAccessLayer.Repository
 {
     public class GenericRepository<T> : IGenericDal<T> where T : class
     {
+        private readonly Context _context;
+
+        public GenericRepository(Context context)
+        {
+            _context = context;
+        }
+
         public void Delete(T entity)
         {
             using var c = new Context();
@@ -25,8 +32,7 @@ namespace DataAccessLayer.Repository
 
         public List<T> GetList()
         {
-            using var c = new Context();
-            return c.Set<T>().ToList();
+            return _context.Set<T>().ToList();
         }
 
         public void Insert(T entity)
