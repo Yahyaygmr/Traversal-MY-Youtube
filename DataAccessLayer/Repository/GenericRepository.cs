@@ -20,9 +20,8 @@ namespace DataAccessLayer.Repository
 
         public void Delete(T entity)
         {
-            using var c = new Context();
-            c.Remove(entity);
-            c.SaveChanges();
+            _context.Remove(entity);
+            _context.SaveChanges();
         }
 
         public T FindByCondition(Expression<Func<T, bool>> expression)
@@ -30,23 +29,31 @@ namespace DataAccessLayer.Repository
             throw new NotImplementedException();
         }
 
+        public T GetById(int id)
+        {
+            return _context.Set<T>().Find(id);
+        }
+
         public List<T> GetList()
         {
             return _context.Set<T>().ToList();
         }
 
+        public List<T> GetListByFilter(Expression<Func<T, bool>> expression)
+        {
+            return _context.Set<T>().Where(expression).ToList();
+        }
+
         public void Insert(T entity)
         {
-            using var c = new Context();
-            c.Add(entity);
-            c.SaveChanges();
+            _context.Add(entity);
+            _context.SaveChanges();
         }
 
         public void Update(T entity)
         {
-            using var c = new Context();
-            c.Update(entity);
-            c.SaveChanges();
+            _context.Update(entity);
+            _context.SaveChanges();
         }
     }
 }

@@ -39,6 +39,11 @@ namespace BusinessLayer.Concrete
             return _featureDal.GetList();
         }
 
+        public List<Feature> TGetListById(Expression<Func<Feature, bool>> expression)
+        {
+            throw new NotImplementedException();
+        }
+
         public void TInsert(Feature entity)
         {
             throw new NotImplementedException();

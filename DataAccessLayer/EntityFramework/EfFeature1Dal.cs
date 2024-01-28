@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.Repository;
 using EntityLayer.Concrete;
 using System;
@@ -11,5 +12,8 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfFeature1Dal : GenericRepository<Feature1>, IFeature1Dal
     {
+        public EfFeature1Dal(Context context) : base(context)
+        {
+        }
     }
 }

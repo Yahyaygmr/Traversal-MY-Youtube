@@ -16,7 +16,8 @@ namespace DataAccessLayer.Abstract
         IFeatureDal Feature { get; }
         IGuideDal Guide { get; }
         INewsletterDal Newsletter { get; }
-        ISubAboutDal ISubAboutl { get; }
+        ISubAboutDal SubAbout { get; }
         ITestimonialDal Testimonial { get; }
+        ICommentDal Comment { get; }
     }
 }

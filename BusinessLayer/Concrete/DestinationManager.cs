@@ -12,11 +12,13 @@ namespace BusinessLayer.Concrete
 {
     public class DestinationManager : IDestinationService
     {
+        private readonly IDalManager _dalManager;
         private readonly IDestinationDal _destinationDal;
 
-        public DestinationManager(IDestinationDal destinationDal)
+        public DestinationManager(IDestinationDal destinationDal, IDalManager dalManager)
         {
             _destinationDal = destinationDal;
+            _dalManager = dalManager;
         }
 
         public void TDelete(Destination entity)
@@ -31,12 +33,19 @@ namespace BusinessLayer.Concrete
 
         public Destination TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _destinationDal.GetById(id);
+
         }
 
         public List<Destination> TGetList()
         {
-            return _destinationDal.GetList();
+            return _dalManager.Destination.GetList();
+            //return _destinationDal.GetList();
+        }
+
+        public List<Destination> TGetListById(Expression<Func<Destination, bool>> expression)
+        {
+            throw new NotImplementedException();
         }
 
         public void TInsert(Destination entity)

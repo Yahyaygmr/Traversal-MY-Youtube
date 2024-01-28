@@ -15,5 +15,6 @@ namespace BusinessLayer.Abstract
         T TGetById(int id);
         T TFindByCondition(Expression<Func<T, bool>> expression);
         List<T> TGetList();
+        List<T> TGetListById(Expression<Func<T, bool>> expression);
     }
 }

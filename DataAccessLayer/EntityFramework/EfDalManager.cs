@@ -19,8 +19,9 @@ namespace DataAccessLayer.EntityFramework
         private readonly INewsletterDal _newsletterDal;
         private readonly ISubAboutDal _subAboutDal;
         private readonly ITestimonialDal _testimonialDal;
+        private readonly ICommentDal _commentDal;
 
-        public EfDalManager(IAbout2Dal about2Dal, IAboutDal aboutDal, IContactDal contactDal, IDestinationDal destinationDal, IFeature1Dal feature1Dal, IFeatureDal featureDal, IGuideDal guideDal, INewsletterDal newsletterDal, ISubAboutDal subAboutDal, ITestimonialDal testimonialDal)
+        public EfDalManager(IAbout2Dal about2Dal, IAboutDal aboutDal, IContactDal contactDal, IDestinationDal destinationDal, IFeature1Dal feature1Dal, IFeatureDal featureDal, IGuideDal guideDal, INewsletterDal newsletterDal, ISubAboutDal subAboutDal, ITestimonialDal testimonialDal, ICommentDal commentDal)
         {
             _about2Dal = about2Dal;
             _aboutDal = aboutDal;
@@ -32,6 +33,7 @@ namespace DataAccessLayer.EntityFramework
             _newsletterDal = newsletterDal;
             _subAboutDal = subAboutDal;
             _testimonialDal = testimonialDal;
+            _commentDal = commentDal;
         }
 
         public IAboutDal About => _aboutDal;
@@ -47,7 +49,9 @@ namespace DataAccessLayer.EntityFramework
         public IGuideDal Guide => _guideDal;
         public INewsletterDal Newsletter => _newsletterDal;
 
-        public ISubAboutDal ISubAboutl => _subAboutDal;
+        public ISubAboutDal SubAbout => _subAboutDal;
         public ITestimonialDal Testimonial => _testimonialDal;
+
+        public ICommentDal Comment => _commentDal;
     }
 }

@@ -31,6 +31,11 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public List<Guide> TGetListById(Expression<Func<Guide, bool>> expression)
+        {
+            throw new NotImplementedException();
+        }
+
         public void TInsert(Guide entity)
         {
             throw new NotImplementedException();

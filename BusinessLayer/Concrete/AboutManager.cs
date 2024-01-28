@@ -39,6 +39,11 @@ namespace BusinessLayer.Concrete
             return _abotDal.GetList();
         }
 
+        public List<About> TGetListById(Expression<Func<About, bool>> expression)
+        {
+            throw new NotImplementedException();
+        }
+
         public void TInsert(About entity)
         {
             _abotDal.Insert(entity);

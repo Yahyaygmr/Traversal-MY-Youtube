@@ -6,11 +6,15 @@ namespace TraversalCore.ViewComponents.Default
 {
     public class FeatureViewComponent : ViewComponent
     {
-        FeatureManager featureManager = new FeatureManager(new EfFeatureDal());
+        //FeatureManager featureManager = new FeatureManager(new EfFeatureDal());
+        //public IViewComponentResult Invoke()
+        //{
+        //    var values = featureManager.TGetList();
+        //    return View(values);
+        //}
         public IViewComponentResult Invoke()
         {
-            var values = featureManager.TGetList();
-            return View(values);
+            return View();
         }
     }
 }

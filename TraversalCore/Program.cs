@@ -21,6 +21,7 @@ builder.Services.AddScoped<IGuideDal, EfGuideDal>();
 builder.Services.AddScoped<INewsletterDal, EfNewsletterDal>();
 builder.Services.AddScoped<ISubAboutDal, EfSubAboutDal>();
 builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+builder.Services.AddScoped<ICommentDal, EfCommentDal>();
 
 builder.Services.AddScoped<IServiceManager, ServiceManager>();
 builder.Services.AddScoped<IAbout2Service, About2Manager>();
@@ -33,6 +34,7 @@ builder.Services.AddScoped<IGuideService, GuideManager>();
 builder.Services.AddScoped<INewsletterService, NewsletterManager>();
 builder.Services.AddScoped<ISubAboutService, SubAboutManager>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
+builder.Services.AddScoped<ICommentService, CommentManager>();
 
 
 

@@ -12,7 +12,10 @@ namespace DataAccessLayer.Abstract
         void Insert(T entity);
         void Delete(T entity);
         void Update(T entity);
+        T GetById(int id);
         T FindByCondition(Expression<Func<T, bool>> expression);
         List<T> GetList();
+        List<T> GetListByFilter(Expression<Func<T, bool>> expression);
+
     }
 }

@@ -19,8 +19,9 @@ namespace BusinessLayer.Concrete
         private readonly INewsletterService _newsletterService;
         private readonly ISubAboutService _subAboutService;
         private readonly ITestimonialService _testimonialService;
+        private readonly ICommentService _commentService;
 
-        public ServiceManager(IAbout2Service about2Service, IAboutService aboutService, IContactService contactService, IDestinationService destinationService, IFeature1Service feature1Service, IFeatureService featureService, IGuideService guideService, INewsletterService newsletterService, ISubAboutService subAboutService, ITestimonialService testimonialService)
+        public ServiceManager(IAbout2Service about2Service, IAboutService aboutService, IContactService contactService, IDestinationService destinationService, IFeature1Service feature1Service, IFeatureService featureService, IGuideService guideService, INewsletterService newsletterService, ISubAboutService subAboutService, ITestimonialService testimonialService, ICommentService commentService)
         {
             _about2Service = about2Service;
             _aboutService = aboutService;
@@ -32,6 +33,7 @@ namespace BusinessLayer.Concrete
             _newsletterService = newsletterService;
             _subAboutService = subAboutService;
             _testimonialService = testimonialService;
+            _commentService = commentService;
         }
 
         public IAbout2Service About2Service => _about2Service;
@@ -51,5 +53,6 @@ namespace BusinessLayer.Concrete
 
         public ITestimonialService TestimonialService => _testimonialService;
 
+        public ICommentService CommentService => _commentService;
     }
 }

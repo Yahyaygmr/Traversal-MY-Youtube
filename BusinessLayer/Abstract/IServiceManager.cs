@@ -18,5 +18,6 @@ namespace BusinessLayer.Abstract
         INewsletterService NewsletterService { get; }
         ISubAboutService SubAboutService { get; }
         ITestimonialService TestimonialService { get; }
+        ICommentService CommentService { get; }
     }
 }
