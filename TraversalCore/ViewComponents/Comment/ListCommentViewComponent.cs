@@ -14,7 +14,7 @@ namespace TraversalCore.ViewComponents.Comment
 
         public IViewComponentResult Invoke(int id)
         {
-            var values = _serviceManager.CommentService.TGetListById(X => X.CommentId ==  id);
+            var values = _serviceManager.CommentService.TGetListById(X => X.DestinationId ==  id);
             return View(values);
         }
     }

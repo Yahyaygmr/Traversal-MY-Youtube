@@ -19,6 +19,7 @@ namespace TraversalCore.Controllers
         }
         public IActionResult DestinationDetails(int id)
         {
+            ViewBag.Id = id;
             var destination = _serviceManager.DestinationService.TGetById(id);
             return View(destination);
         }
