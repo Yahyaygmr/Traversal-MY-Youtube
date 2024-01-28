@@ -46,7 +46,7 @@ namespace BusinessLayer.Concrete
 
         public void TInsert(Comment entity)
         {
-            throw new NotImplementedException();
+            _dalManager.Comment.Insert(entity);
         }
 
         public void TUpdate(Comment entity)
