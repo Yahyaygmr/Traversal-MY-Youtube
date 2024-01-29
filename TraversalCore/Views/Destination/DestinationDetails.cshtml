@@ -140,7 +140,8 @@
 
 
                @await Component.InvokeAsync("ListComment",new {id = ViewBag.Id})
-                @await Component.InvokeAsync("MakeComment")
+             @*    @await Component.InvokeAsync("MakeComment") *@
+             @await Html.PartialAsync("~/Views/Comment/AddComment.cshtml")
           
             </div>
         </div>
