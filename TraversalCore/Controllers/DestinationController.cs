@@ -1,8 +1,10 @@
 ﻿using BusinessLayer.Abstract;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalCore.Controllers
 {
+    [AllowAnonymous]
     public class DestinationController : Controller
     {
         private readonly IServiceManager _serviceManager;

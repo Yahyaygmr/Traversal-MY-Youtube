@@ -1,0 +1,113 @@
+﻿@model UserRegisterViewModel
+@{
+    Layout = null;
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>Traversal Misafir Kayıt</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords"
+		  content="Invent Signup Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //Meta tag Keywords -->
+	<!--/Style-CSS -->
+	<link rel="stylesheet" href="~/web2/css/style.css" type="text/css" media="all" />
+	<!--//Style-CSS -->
+</head>
+
+<body>
+	<!-- /login-section -->
+	<section class="w3l-login-6">
+		<div class="login-hny">
+			<div class="form-content">
+				<div class="form-right">
+					<div class="overlay">
+						<div class="grid-info-form">
+							<h5>Merhaba</h5>
+							<h3>Traversal Misafir Kayıt Sayfası</h3>
+						</div>
+
+					</div>
+				</div>
+				<div class="form-left">
+					<div class="middle">
+						<h4>Bize Katıl</h4>
+						<p>Hesap Oluştur</p>
+					</div>
+					<form action="#" method="post" class="signin-form">
+						<div class="form-input">
+							<label>İsim</label>
+							<input type="text" asp-for="Name"/>
+							<span asp-validation-for="Name" style="color:red;"></span>
+						</div>
+						<div class="form-input">
+							<label>Soyadınız</label>
+							<input type="text" asp-for="Surname" />
+							<span asp-validation-for="Surname" style="color:red;"></span>
+
+						</div>
+						<div class="form-input">
+							<label>Kullanıcı Adı</label>
+							<input type="text" asp-for="UserName" />
+							<span asp-validation-for="UserName" style="color:red;"></span>
+
+						</div>
+						<div class="form-input">
+							<label>Email</label>
+							<input type="email" asp-for="Email"/>
+							<span asp-validation-for="Email" style="color:red;"></span>
+
+						</div>
+						<div class="form-input">
+							<label>Şifre</label>
+							<input type="password" asp-for="Password"/>
+							<span asp-validation-for="Password" style="color:red;"></span>
+
+						</div>
+						<div class="form-input">
+							<label>Şifre Tekrar</label>
+							<input type="password" asp-for="ConfirmPassword" />
+							<span asp-validation-for="ConfirmPassword" style="color:red;"></span>
+
+						</div>
+						<button class="btn">Hesap Oluştur</button>
+					</form>
+					<div class="copy-right text-center">
+						<div style="text-decoration:underline;">
+							<br />
+							Zaten hesabın var mı?-
+							<a href="/Login/SignIn/">Giriş Yap</a>
+						</div>
+						<br />
+						<div>
+							© @DateTime.Now.Year Tüm Hakları saklıdır.
+						</div>
+						
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+	<!-- //login-section -->
+</body>
+
+</html>
