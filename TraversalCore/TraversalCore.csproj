@@ -30,4 +30,9 @@
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Members\Data\" />
+    <Folder Include="Areas\Members\Models\" />
+  </ItemGroup>
+
 </Project>
