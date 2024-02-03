@@ -14,15 +14,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser, AppRole>()
-	.AddEntityFrameworkStores<Context>()
-	.AddErrorDescriber<CustomIdentityValidator>()
-	.AddEntityFrameworkStores<Context>();
+    .AddEntityFrameworkStores<Context>()
+    .AddErrorDescriber<CustomIdentityValidator>()
+    .AddEntityFrameworkStores<Context>();
 builder.Services.AddMvc(config =>
 {
-	var policy = new AuthorizationPolicyBuilder()
-	.RequireAuthenticatedUser()
-	.Build();
-	config.Filters.Add(new AuthorizeFilter(policy));
+    var policy = new AuthorizationPolicyBuilder()
+    .RequireAuthenticatedUser()
+    .Build();
+    config.Filters.Add(new AuthorizeFilter(policy));
 });
 builder.Services.AddMvc();
 
@@ -38,6 +38,7 @@ builder.Services.AddScoped<INewsletterDal, EfNewsletterDal>();
 builder.Services.AddScoped<ISubAboutDal, EfSubAboutDal>();
 builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 builder.Services.AddScoped<ICommentDal, EfCommentDal>();
+builder.Services.AddScoped<IReservationDal, EfReservationDal>();
 
 builder.Services.AddScoped<IServiceManager, ServiceManager>();
 builder.Services.AddScoped<IAbout2Service, About2Manager>();
@@ -51,6 +52,7 @@ builder.Services.AddScoped<INewsletterService, NewsletterManager>();
 builder.Services.AddScoped<ISubAboutService, SubAboutManager>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 builder.Services.AddScoped<ICommentService, CommentManager>();
+builder.Services.AddScoped<IReservationService, ReservationManager>();
 
 
 builder.Services.AddControllersWithViews();
@@ -60,9 +62,9 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-	app.UseExceptionHandler("/Home/Error");
-	// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-	app.UseHsts();
+    app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
 }
 
 app.UseHttpsRedirection();
@@ -73,8 +75,8 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-	name: "default",
-	pattern: "{controller=Home}/{action=Index}/{id?}");
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(

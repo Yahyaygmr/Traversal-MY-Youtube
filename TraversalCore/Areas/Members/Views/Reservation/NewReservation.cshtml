@@ -1,4 +1,5 @@
-﻿
+﻿@model Reservation
+
 @{
     ViewData["Title"] = "NewReservation";
     Layout = "~/Areas/Members/Views/Shared/_UserLayout.cshtml";
@@ -6,3 +7,4 @@
 
 <h1>NewReservation</h1>
 
+@Html.DropDownListFor(x => x.Destination, (SelectList)ViewBag.Destinations)

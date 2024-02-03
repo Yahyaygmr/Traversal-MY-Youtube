@@ -19,5 +19,6 @@ namespace DataAccessLayer.Abstract
         ISubAboutDal SubAbout { get; }
         ITestimonialDal Testimonial { get; }
         ICommentDal Comment { get; }
+        IReservationDal Reservation { get; }
     }
 }
