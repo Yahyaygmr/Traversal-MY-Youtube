@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace TraversalCore.Areas.Members.Controllers
 {
     [Area("Members")]
+    [Route("Members/[controller]/[action]")]
     [AllowAnonymous]
     public class ReservationController : Controller
     {
@@ -35,7 +36,11 @@ namespace TraversalCore.Areas.Members.Controllers
         [HttpPost]
         public IActionResult NewReservation(Reservation reservation)
         {
-            return View();
+            reservation.AppUserId = 7;
+            reservation.Status = "Onay Bekliyor";
+            _serviceManager.ReservationService.TInsert(reservation);
+
+            return RedirectToAction("MyCurrentReservations");
         }
         private SelectList GetDestinations()
         {
