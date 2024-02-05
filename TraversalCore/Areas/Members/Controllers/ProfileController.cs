@@ -8,7 +8,7 @@ namespace TraversalCore.Areas.Members.Controllers
 {
     [AllowAnonymous]
     [Area("Members")]
-    [Route("Member/[controller]/[Action]")]
+    [Route("Members/[controller]/[Action]")]
     public class ProfileController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
