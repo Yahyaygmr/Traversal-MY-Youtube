@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace TraversalCore.Areas.Members.Controllers
 {
     [Area("Members")]
+    [Route("Members/[controller]/[Action]")]
     [AllowAnonymous]
     public class DestinationController : Controller
     {

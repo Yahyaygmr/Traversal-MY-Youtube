@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,13 @@ namespace BusinessLayer.Concrete
 {
     public class GuideManager : IGuideService
     {
+        private readonly IDalManager _dalManager;
+
+        public GuideManager(IDalManager dalManager)
+        {
+            _dalManager = dalManager;
+        }
+
         public void TDelete(Guide entity)
         {
             throw new NotImplementedException();
@@ -28,7 +36,7 @@ namespace BusinessLayer.Concrete
 
         public List<Guide> TGetList()
         {
-            throw new NotImplementedException();
+            return _dalManager.Guide.GetList();
         }
 
         public List<Guide> TGetListById(Expression<Func<Guide, bool>> expression)
