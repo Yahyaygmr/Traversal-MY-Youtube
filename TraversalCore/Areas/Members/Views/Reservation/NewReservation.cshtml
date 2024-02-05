@@ -1,0 +1,34 @@
+﻿@model Reservation
+
+@{
+    ViewData["Title"] = "NewReservation";
+    Layout = "~/Areas/Members/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Yeni Rezervasyon</h1>
+<form method="post">
+    <div class="form-group">
+        <label>Lokasyon</label>
+        @Html.DropDownListFor(x => x.DestinationId, (SelectList)ViewBag.Destinations, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Kişi Sayısı</label>
+        @Html.TextBoxFor(x => x.PersonCount, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Rezervasyon Tarihi</label>
+       <input type="date" asp-for="ReservationDate" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label>Varsa Eklemek İstedikleriniz</label>
+        @Html.TextAreaFor(x => x.Description,5,1, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success">Rezervasyon Yap</button>
+    </div>
+</form>
+<script>
+    window.onload = (function () {
+        alert('Rezervasyonunuz başlangıçta onay bekliyor şeklinde alınacaktır.Rezervasyon onaylanma süreci için "Güncel Rezervasyonlarım" menusunu takip etmeyi unutmayın.');
+    });</script>
+
