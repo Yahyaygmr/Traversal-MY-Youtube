@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -12,19 +13,31 @@ namespace TraversalCore.Areas.Members.Controllers
     public class ReservationController : Controller
     {
         private readonly IServiceManager _serviceManager;
+        private readonly UserManager<AppUser> _userManager;
 
-        public ReservationController(IServiceManager serviceManager)
+        public ReservationController(IServiceManager serviceManager,UserManager<AppUser> userManager)
         {
             _serviceManager = serviceManager;
+            _userManager = userManager;
         }
 
-        public IActionResult MyCurrentReservations()
+        public async Task<IActionResult> MyCurrentReservations()
         {
-            return View();
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var values = _serviceManager.ReservationService.GetListReservationByAccepted(user.Id);
+            return View(values);
         }
-        public IActionResult MyOldtReservations()
+        public async Task<IActionResult> MyOldtReservations()
         {
-            return View();
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var values = _serviceManager.ReservationService.GetListReservationByPrevious(user.Id);
+            return View(values);
+        }
+        public async Task<IActionResult> MyApprovalReservations()
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var values = _serviceManager.ReservationService.GetListReservationByWaitApproval(user.Id);
+            return View(values);
         }
         [HttpGet]
         public IActionResult NewReservation()
@@ -46,5 +59,9 @@ namespace TraversalCore.Areas.Members.Controllers
         {
             return new SelectList(_serviceManager.DestinationService.TGetList(), "DestinationId", "City");
         }
+        //private async Task<AppUser> GetAppUser(string userName)
+        //{
+        //    return await _userManager.FindByNameAsync(userName);
+        //}
     }
 }

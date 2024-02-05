@@ -26,7 +26,7 @@ namespace DataAccessLayer.Repository
 
         public T FindByCondition(Expression<Func<T, bool>> expression)
         {
-            throw new NotImplementedException();
+            return _context.Set<T>().Where(expression).FirstOrDefault();
         }
 
         public T GetById(int id)
