@@ -19,6 +19,21 @@ namespace BusinessLayer.Concrete
             _dalManager = dalManager;
         }
 
+        public List<Reservation> GetListReservationByAccepted(int id)
+        {
+            return _dalManager.Reservation.GetListReservationByAccepted(id);
+        }
+
+        public List<Reservation> GetListReservationByPrevious(int id)
+        {
+            return _dalManager.Reservation.GetListReservationByPrevious(id);
+        }
+
+        public List<Reservation> GetListReservationByWaitApproval(int id)
+        {
+            return _dalManager.Reservation.GetListReservationByWaitApproval(id);
+        }
+
         public void TDelete(Reservation entity)
         {
             throw new NotImplementedException();
@@ -26,7 +41,7 @@ namespace BusinessLayer.Concrete
 
         public Reservation TFindByCondition(Expression<Func<Reservation, bool>> expression)
         {
-            throw new NotImplementedException();
+            return _dalManager.Reservation.FindByCondition(expression);
         }
 
         public Reservation TGetById(int id)
@@ -36,12 +51,13 @@ namespace BusinessLayer.Concrete
 
         public List<Reservation> TGetList()
         {
-            throw new NotImplementedException();
+
+            return _dalManager.Reservation.GetList();
         }
 
         public List<Reservation> TGetListById(Expression<Func<Reservation, bool>> expression)
         {
-            throw new NotImplementedException();
+            return _dalManager.Reservation.GetListByFilter(expression).ToList();
         }
 
         public void TInsert(Reservation entity)

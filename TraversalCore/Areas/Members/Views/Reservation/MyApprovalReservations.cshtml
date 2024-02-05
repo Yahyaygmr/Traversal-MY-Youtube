@@ -1,11 +1,11 @@
 ﻿@model List<Reservation>
 
 @{
-    ViewData["Title"] = "MyCurrentReservations";
+    ViewData["Title"] = "MyApprovalReservations";
     Layout = "~/Areas/Members/Views/Shared/_UserLayout.cshtml";
 }
 
-<h1>Aktif Rezervasyonlarım</h1>
+<h1>Onay Bekleyen Rezervasyonlar</h1>
 <hr />
 <div class="container">
     @if (Model.Count < 1)
@@ -36,4 +36,5 @@
     }
 
 </div>
+
 
