@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer.Abstract
+namespace DataAccessLayer.Abstract
 {
-    public interface ICommentService : IGenericService<Comment>
+    public interface IAppUserDal : IGenericDal<AppUser>
     {
-        List<Comment> GetAllCommentsWithDestinations();
     }
 }

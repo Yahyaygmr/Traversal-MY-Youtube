@@ -2,6 +2,7 @@
 using DataAccessLayer.Concrete;
 using DataAccessLayer.Repository;
 using EntityLayer.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,17 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfCommentDal : GenericRepository<Comment>, ICommentDal
     {
+        private readonly Context _context;
         public EfCommentDal(Context context) : base(context)
         {
+            _context = context;
+        }
+
+        public List<Comment> GetAllCommentsWithDestinations()
+        {
+            return _context.Comments
+                .Include(x => x.DEstination)
+                .ToList();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace BusinessLayer.Concrete
 
         public void TDelete(Guide entity)
         {
-            throw new NotImplementedException();
+            _dalManager.Guide.Delete(entity);
         }
 
         public Guide TFindByCondition(Expression<Func<Guide, bool>> expression)
@@ -31,7 +31,7 @@ namespace BusinessLayer.Concrete
 
         public Guide TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _dalManager.Guide.GetById(id);
         }
 
         public List<Guide> TGetList()
@@ -46,12 +46,12 @@ namespace BusinessLayer.Concrete
 
         public void TInsert(Guide entity)
         {
-            throw new NotImplementedException();
+            _dalManager.Guide.Insert(entity);
         }
 
         public void TUpdate(Guide entity)
         {
-            throw new NotImplementedException();
+            _dalManager.Guide.Update(entity);
         }
     }
 

@@ -1,5 +1,6 @@
 using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
+using BusinessLayer.Container;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
@@ -26,33 +27,7 @@ builder.Services.AddMvc(config =>
 });
 builder.Services.AddMvc();
 
-builder.Services.AddScoped<IDalManager, EfDalManager>();
-builder.Services.AddScoped<IAbout2Dal, EfAbout2Dal>();
-builder.Services.AddScoped<IAboutDal, EfAboutDal>();
-builder.Services.AddScoped<IContactDal, EfContactDal>();
-builder.Services.AddScoped<IDestinationDal, EfDestinationDal>();
-builder.Services.AddScoped<IFeature1Dal, EfFeature1Dal>();
-builder.Services.AddScoped<IFeatureDal, EfFeatureDal>();
-builder.Services.AddScoped<IGuideDal, EfGuideDal>();
-builder.Services.AddScoped<INewsletterDal, EfNewsletterDal>();
-builder.Services.AddScoped<ISubAboutDal, EfSubAboutDal>();
-builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
-builder.Services.AddScoped<ICommentDal, EfCommentDal>();
-builder.Services.AddScoped<IReservationDal, EfReservationDal>();
-
-builder.Services.AddScoped<IServiceManager, ServiceManager>();
-builder.Services.AddScoped<IAbout2Service, About2Manager>();
-builder.Services.AddScoped<IAboutService, AboutManager>();
-builder.Services.AddScoped<IContactService, ContactManager>();
-builder.Services.AddScoped<IDestinationService, DestinationManager>();
-builder.Services.AddScoped<IFeature1Service, Feature1Manager>();
-builder.Services.AddScoped<IFeatureService, FeatureManager>();
-builder.Services.AddScoped<IGuideService, GuideManager>();
-builder.Services.AddScoped<INewsletterService, NewsletterManager>();
-builder.Services.AddScoped<ISubAboutService, SubAboutManager>();
-builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
-builder.Services.AddScoped<ICommentService, CommentManager>();
-builder.Services.AddScoped<IReservationService, ReservationManager>();
+builder.Services.ContainerDependencies();
 
 
 builder.Services.AddControllersWithViews();
@@ -66,6 +41,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404", "?code={0}");
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
