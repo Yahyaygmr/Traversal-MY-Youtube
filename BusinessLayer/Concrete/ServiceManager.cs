@@ -21,8 +21,9 @@ namespace BusinessLayer.Concrete
         private readonly ITestimonialService _testimonialService;
         private readonly ICommentService _commentService;
         private readonly IReservationService _reservationService;
+        private readonly IAppUserService _appUserService;
 
-        public ServiceManager(IAbout2Service about2Service, IAboutService aboutService, IContactService contactService, IDestinationService destinationService, IFeature1Service feature1Service, IFeatureService featureService, IGuideService guideService, INewsletterService newsletterService, ISubAboutService subAboutService, ITestimonialService testimonialService, ICommentService commentService, IReservationService reservationService)
+        public ServiceManager(IAbout2Service about2Service, IAboutService aboutService, IContactService contactService, IDestinationService destinationService, IFeature1Service feature1Service, IFeatureService featureService, IGuideService guideService, INewsletterService newsletterService, ISubAboutService subAboutService, ITestimonialService testimonialService, ICommentService commentService, IReservationService reservationService, IAppUserService appUserService)
         {
             _about2Service = about2Service;
             _aboutService = aboutService;
@@ -36,6 +37,7 @@ namespace BusinessLayer.Concrete
             _testimonialService = testimonialService;
             _commentService = commentService;
             _reservationService = reservationService;
+            _appUserService = appUserService;
         }
 
         public IAbout2Service About2Service => _about2Service;
@@ -58,5 +60,7 @@ namespace BusinessLayer.Concrete
         public ICommentService CommentService => _commentService;
 
         public IReservationService ReservationService => _reservationService;
+
+        public IAppUserService AppUserService => _appUserService;
     }
 }

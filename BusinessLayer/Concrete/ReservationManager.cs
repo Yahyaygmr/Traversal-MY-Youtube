@@ -19,6 +19,11 @@ namespace BusinessLayer.Concrete
             _dalManager = dalManager;
         }
 
+        public List<Reservation> GetListAllReservationByUserId(int id)
+        {
+            return _dalManager.Reservation.GetListAllReservationByUserId(id);
+        }
+
         public List<Reservation> GetListReservationByAccepted(int id)
         {
             return _dalManager.Reservation.GetListReservationByAccepted(id);

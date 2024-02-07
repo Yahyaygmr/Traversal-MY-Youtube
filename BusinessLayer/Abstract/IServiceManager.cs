@@ -20,5 +20,6 @@ namespace BusinessLayer.Abstract
         ITestimonialService TestimonialService { get; }
         ICommentService CommentService { get; }
         IReservationService ReservationService { get; }
+        IAppUserService AppUserService { get; }
     }
 }

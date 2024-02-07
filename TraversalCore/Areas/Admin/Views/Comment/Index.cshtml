@@ -19,7 +19,7 @@
                 <th>Durumu</th>
                 <th>Sitede Gör</th>
                 <th>Sil</th>
-                <th>Güncelle</th>
+              @*   <th>Güncelle</th> *@
             </tr>
         </thead>
         <tbody>
@@ -32,8 +32,8 @@
                     <td>@item.CommentDate.ToString("dd MMMM yyyy HH:mm")</td>
                     <td>@item.CommentState</td>
                     <td>@* <a href="/Destination/DestinationDetails/@item.DestinationId" class="btn btn-primary btn-sm">Sitede Gör</a >*@gör</td>
-                    <td><a href="/Admin/Comment/DeleteComment/@item.DestinationId" class="btn btn-danger btn-sm">Sil</a></td>
-                    <td><a href="/Admin/Comment/UpdateComment/@item.DestinationId" class="btn btn-warning btn-sm">Güncelle</a></td>
+                    <td><a href="/Admin/Comment/DeleteComment/@item.CommentId" class="btn btn-danger btn-sm">Sil</a></td>
+                   @*  <td><a href="/Admin/Comment/UpdateComment/@item.CommentId" class="btn btn-warning btn-sm">Güncelle</a></td> *@
                 </tr>
             }
 

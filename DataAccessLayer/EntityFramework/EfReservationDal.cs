@@ -35,6 +35,14 @@ namespace DataAccessLayer.EntityFramework
                 .ToList();
         }
 
+        public List<Reservation> GetListAllReservationByUserId(int id)
+        {
+            return _context.Reservations
+                .Include(x => x.Destination)
+                .Where(x => x.AppUserId == id)
+                .ToList();
+        }
+
         public List<Reservation> GetListReservationByWaitApproval(int id)
         {
             return _context.Reservations
