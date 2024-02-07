@@ -1,15 +1,46 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
 <!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>_AdminLayout</title>
-</head>
+<html lang="en"
+      class="light-style layout-menu-fixed"
+      dir="ltr"
+      data-theme="theme-default"
+      data-assets-path="~/sneat-1.0.0/assets/"
+      data-template="vertical-menu-template-free">
+@await Component.InvokeAsync("Head")
+
 <body>
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+               @await Component.InvokeAsync("AppBrandDemo")
+
+                <div class="menu-inner-shadow"></div>
+                @await Component.InvokeAsync("SideBar")
+              
+            </aside>
+            <div class="layout-page">
+                @await Component.InvokeAsync("NavBar")
+
+                <div class="content-wrapper">
+                    <div class="container mt-4">
+                        @RenderBody()
+
+                    </div>
+
+                @await Component.InvokeAsync("Footer")
+
+                    <div class="content-backdrop fade"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+
+    @await Component.InvokeAsync("Scripts")
 </body>
 </html>
