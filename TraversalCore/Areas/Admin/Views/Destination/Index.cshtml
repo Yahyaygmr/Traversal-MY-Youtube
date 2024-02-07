@@ -19,7 +19,6 @@
                 <th>Sitede Gör</th>
                 <th>Sil</th>
                 <th>Güncelle</th>
-                <th>Detaylar</th>
             </tr>
         </thead>
         <tbody>
@@ -30,16 +29,18 @@
                     <td>@item.City</td>
                     <td>@item.Price.ToString("c")</td>
                     <td>@item.Capacity</td>
-                    <td><a href="#" class="btn btn-primary btn-sm">Sitede Gör</a></td>
-                    <td><a href="#" class="btn btn-danger btn-sm">Sil</a></td>
-                    <td><a href="#" class="btn btn-warning btn-sm">Güncelle</a></td>
-                    <td><a href="#" class="btn btn-info btn-sm">Detay</a></td>
+                    <td><a href="/Destination/DestinationDetails/@item.DestinationId" class="btn btn-primary btn-sm">Sitede Gör</a></td>
+                    <td><a href="/Admin/Destination/DeleteDestination/@item.DestinationId" class="btn btn-danger btn-sm">Sil</a></td>
+                    <td><a href="/Admin/Destination/UpdateDestination/@item.DestinationId" class="btn btn-warning btn-sm">Güncelle</a></td>
                 </tr>
             }
            
         </tbody>
-       
     </table>
+    <div class="my-4">
+        <a href="/Admin/Destination/AddDestination/" class="btn btn-outline-primary">Yeni Tur Rotası Oluştur</a>
+    </div>
+ 
 
 </div>
 

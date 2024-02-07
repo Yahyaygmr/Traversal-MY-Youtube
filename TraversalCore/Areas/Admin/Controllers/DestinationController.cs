@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace TraversalCore.Areas.Admin.Controllers
 {
     [Area("Admin")]
+   
     public class DestinationController : Controller
     {
         private readonly IServiceManager _serviceManager;
@@ -27,6 +28,7 @@ namespace TraversalCore.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult AddDestination(Destination destination)
         {
+            destination.Status = true;
             if (ModelState.IsValid)
             {
                 _serviceManager.DestinationService.TInsert(destination);
@@ -38,17 +40,19 @@ namespace TraversalCore.Areas.Admin.Controllers
         public IActionResult DeleteDestination(int id)
         {
             var dest = _serviceManager.DestinationService.TGetById(id);
+
             _serviceManager.DestinationService.TDelete(dest);
+
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public IActionResult UpdateDEstination(int id)
+        public IActionResult UpdateDestination(int id)
         {
             var dest = _serviceManager.DestinationService.TGetById(id);
             return View(dest);
         }
         [HttpPost]
-        public IActionResult UpdateDEstination(Destination destination)
+        public IActionResult UpdateDestination(Destination destination)
         {
             _serviceManager.DestinationService.TUpdate(destination);
             return RedirectToAction("Index");
