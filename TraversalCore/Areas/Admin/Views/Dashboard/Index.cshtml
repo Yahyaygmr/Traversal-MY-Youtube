@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="row">
+            @await Component.InvokeAsync("DashboardBanner")
+
+            @*üst sıradaki ikili istatistik*@
+            @await Component.InvokeAsync("Cards1Statistics")
+        
+      
+            <!-- Total Revenue -->
+            @await Component.InvokeAsync("TotalRevenue")
+            <!--/ Total Revenue -->
+
+            @*Alt sıradaki üçlü istatistik*@
+            @await Component.InvokeAsync("Cards2Statistics")
+          
+        </div>
+        <div class="row">
+            <!-- Destination Statistics -->
+            @await Component.InvokeAsync("DestinationStatistic")
+            <!--/ Destination Statistics -->
+
+            <!-- Destination Statistics2 -->
+            @await Component.InvokeAsync("DestinationStatistic2")
+            <!--/ Destination Statistics2 -->
+
+            <!-- Dashboard Guide List -->
+            @await Component.InvokeAsync("DashboardGuideList")
+            <!--/ Dashboard Guide List -->
+        </div>
+    </div>
+</div>
