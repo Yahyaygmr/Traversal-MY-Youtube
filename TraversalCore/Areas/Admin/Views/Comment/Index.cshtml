@@ -1,0 +1,47 @@
+﻿@model List<Comment>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yorumlar</h1>
+<hr />
+<div class="container">
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Destination</th>
+                <th>Kullanıcı</th>
+                <th>Tarih</th>
+                <th>Durumu</th>
+                <th>Sitede Gör</th>
+                <th>Sil</th>
+                <th>Güncelle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.CommentId</td>
+                    <td>@item.DEstination.City</td>
+                    <td>@item.CommentUser</td>
+                    <td>@item.CommentDate.ToString("dd MMMM yyyy HH:mm")</td>
+                    <td>@item.CommentState</td>
+                    <td>@* <a href="/Destination/DestinationDetails/@item.DestinationId" class="btn btn-primary btn-sm">Sitede Gör</a >*@gör</td>
+                    <td><a href="/Admin/Comment/DeleteComment/@item.DestinationId" class="btn btn-danger btn-sm">Sil</a></td>
+                    <td><a href="/Admin/Comment/UpdateComment/@item.DestinationId" class="btn btn-warning btn-sm">Güncelle</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+  @*   <div class="my-4">
+        <a href="/Admin/Destination/AddDestination/" class="btn btn-outline-primary">Yeni Tur Rotası Oluştur</a>
+    </div>
+ *@
+
+</div>

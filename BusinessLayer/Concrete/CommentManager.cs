@@ -19,9 +19,14 @@ namespace BusinessLayer.Concrete
             _dalManager = dalManager;
         }
 
+        public List<Comment> GetAllCommentsWithDestinations()
+        {
+            return _dalManager.Comment.GetAllCommentsWithDestinations();
+        }
+
         public void TDelete(Comment entity)
         {
-            throw new NotImplementedException();
+            _dalManager.Comment.Delete(entity);
         }
 
         public Comment TFindByCondition(Expression<Func<Comment, bool>> expression)
@@ -31,12 +36,12 @@ namespace BusinessLayer.Concrete
 
         public Comment TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _dalManager.Comment.GetById(id);
         }
 
         public List<Comment> TGetList()
         {
-            throw new NotImplementedException();
+           return _dalManager.Comment.GetList();
         }
 
         public List<Comment> TGetListById(Expression<Func<Comment, bool>> expression)
@@ -51,7 +56,7 @@ namespace BusinessLayer.Concrete
 
         public void TUpdate(Comment entity)
         {
-            throw new NotImplementedException();
+            _dalManager.Comment.Update(entity);
         }
     }
 }
