@@ -45,11 +45,11 @@ namespace TraversalCore.Areas.Members.Controllers
             user.Name = model.Name;
             user.Surname = model.Surname;
             user.PhoneNumber = model.PhoneNumber;
-            user.PasswordHash = _userManager.PasswordHasher.HashPassword(user,model.Password);
+            user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, model.Password);
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {
-                return RedirectToAction("SignIn", "Login");
+                return RedirectToAction("SignIn", "Login", new { area = "Members" });
             }
             return View();
         }

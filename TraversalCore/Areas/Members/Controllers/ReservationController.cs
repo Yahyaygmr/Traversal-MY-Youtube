@@ -53,7 +53,7 @@ namespace TraversalCore.Areas.Members.Controllers
             reservation.Status = "Onay Bekliyor";
             _serviceManager.ReservationService.TInsert(reservation);
 
-            return RedirectToAction("MyCurrentReservations");
+            return RedirectToAction("MyCurrentReservations","Reservation",new {area="Members"});
         }
         private SelectList GetDestinations()
         {

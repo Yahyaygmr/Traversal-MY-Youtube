@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace TraversalCore.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/User")]
     public class UserController : Controller
     {
         private readonly IServiceManager _serviceManager;
@@ -13,12 +14,14 @@ namespace TraversalCore.Areas.Admin.Controllers
         {
             _serviceManager = serviceManager;
         }
-
+        [Route("")]
+        [Route("Index")]
         public IActionResult Index()
         {
             var users = _serviceManager.AppUserService.TGetList();
             return View(users);
         }
+        [Route("DeleteUser/{id}")]
         public IActionResult DeleteUser(int id)
         {
             var user = _serviceManager.AppUserService.TGetById(id);
@@ -27,6 +30,7 @@ namespace TraversalCore.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
+        [Route("EditUser/{id}")]
         public IActionResult EditUser(int id)
         {
             var user = _serviceManager.AppUserService.TGetById(id);
@@ -34,15 +38,18 @@ namespace TraversalCore.Areas.Admin.Controllers
             return View(user);
         }
         [HttpPost]
+        [Route("EditUser/{id}")]
         public IActionResult EditUser(AppUser user)
         {
             _serviceManager.AppUserService.TUpdate(user);
             return RedirectToAction("Index");
         }
+        [Route("CommentUser/{id}")]
         public IActionResult CommentUser(int id)
         {
             return View();
         }
+        [Route("ReservationUser/{id}")]
         public IActionResult ReservationUser(int id)
         {
             var user = _serviceManager.AppUserService.TGetById(id);
