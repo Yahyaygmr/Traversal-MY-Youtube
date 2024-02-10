@@ -22,8 +22,10 @@ namespace BusinessLayer.Concrete
         private readonly ICommentService _commentService;
         private readonly IReservationService _reservationService;
         private readonly IAppUserService _appUserService;
+        private readonly IExcelService _excelService;
+        private readonly IPdfService _pdfService;
 
-        public ServiceManager(IAbout2Service about2Service, IAboutService aboutService, IContactService contactService, IDestinationService destinationService, IFeature1Service feature1Service, IFeatureService featureService, IGuideService guideService, INewsletterService newsletterService, ISubAboutService subAboutService, ITestimonialService testimonialService, ICommentService commentService, IReservationService reservationService, IAppUserService appUserService)
+        public ServiceManager(IAbout2Service about2Service, IAboutService aboutService, IContactService contactService, IDestinationService destinationService, IFeature1Service feature1Service, IFeatureService featureService, IGuideService guideService, INewsletterService newsletterService, ISubAboutService subAboutService, ITestimonialService testimonialService, ICommentService commentService, IReservationService reservationService, IAppUserService appUserService, IExcelService excelService, IPdfService pdfService)
         {
             _about2Service = about2Service;
             _aboutService = aboutService;
@@ -38,6 +40,8 @@ namespace BusinessLayer.Concrete
             _commentService = commentService;
             _reservationService = reservationService;
             _appUserService = appUserService;
+            _excelService = excelService;
+            _pdfService = pdfService;
         }
 
         public IAbout2Service About2Service => _about2Service;
@@ -62,5 +66,9 @@ namespace BusinessLayer.Concrete
         public IReservationService ReservationService => _reservationService;
 
         public IAppUserService AppUserService => _appUserService;
+
+        public IExcelService ExcelService => _excelService;
+
+        public IPdfService pdfService => _pdfService;
     }
 }

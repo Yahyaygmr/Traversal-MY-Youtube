@@ -44,6 +44,9 @@ namespace BusinessLayer.Container
             services.AddScoped<ICommentService, CommentManager>();
             services.AddScoped<IReservationService, ReservationManager>();
             services.AddScoped<IAppUserService, AppUserManager>();
+
+            services.AddScoped<IExcelService, ExcelManager>();
+            services.AddScoped<IPdfService, PdfManager>();
         }
     }
 }

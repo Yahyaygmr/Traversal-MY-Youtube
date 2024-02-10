@@ -21,5 +21,7 @@ namespace BusinessLayer.Abstract
         ICommentService CommentService { get; }
         IReservationService ReservationService { get; }
         IAppUserService AppUserService { get; }
+        IExcelService ExcelService { get; }
+        IPdfService pdfService { get; }
     }
 }
