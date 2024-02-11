@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer.ValidationRules
+namespace BusinessLayer.ValidationRules.GuideValidate
 {
     public class GuideValidator : AbstractValidator<Guide>
     {

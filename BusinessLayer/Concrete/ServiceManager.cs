@@ -24,8 +24,9 @@ namespace BusinessLayer.Concrete
         private readonly IAppUserService _appUserService;
         private readonly IExcelService _excelService;
         private readonly IPdfService _pdfService;
+        private readonly IContactUsService _contactUsService;
 
-        public ServiceManager(IAbout2Service about2Service, IAboutService aboutService, IContactService contactService, IDestinationService destinationService, IFeature1Service feature1Service, IFeatureService featureService, IGuideService guideService, INewsletterService newsletterService, ISubAboutService subAboutService, ITestimonialService testimonialService, ICommentService commentService, IReservationService reservationService, IAppUserService appUserService, IExcelService excelService, IPdfService pdfService)
+        public ServiceManager(IAbout2Service about2Service, IAboutService aboutService, IContactService contactService, IDestinationService destinationService, IFeature1Service feature1Service, IFeatureService featureService, IGuideService guideService, INewsletterService newsletterService, ISubAboutService subAboutService, ITestimonialService testimonialService, ICommentService commentService, IReservationService reservationService, IAppUserService appUserService, IExcelService excelService, IPdfService pdfService, IContactUsService contactUsService)
         {
             _about2Service = about2Service;
             _aboutService = aboutService;
@@ -42,6 +43,7 @@ namespace BusinessLayer.Concrete
             _appUserService = appUserService;
             _excelService = excelService;
             _pdfService = pdfService;
+            _contactUsService = contactUsService;
         }
 
         public IAbout2Service About2Service => _about2Service;
@@ -70,5 +72,7 @@ namespace BusinessLayer.Concrete
         public IExcelService ExcelService => _excelService;
 
         public IPdfService pdfService => _pdfService;
+
+        public IContactUsService ContactUsService => _contactUsService;
     }
 }

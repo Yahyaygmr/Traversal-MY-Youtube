@@ -23,5 +23,6 @@ namespace BusinessLayer.Abstract
         IAppUserService AppUserService { get; }
         IExcelService ExcelService { get; }
         IPdfService pdfService { get; }
+        IContactUsService ContactUsService { get; }
     }
 }
