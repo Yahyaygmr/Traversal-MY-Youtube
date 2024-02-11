@@ -29,6 +29,7 @@ namespace BusinessLayer.Container
             services.AddScoped<ICommentDal, EfCommentDal>();
             services.AddScoped<IReservationDal, EfReservationDal>();
             services.AddScoped<IAppUserDal, EfAppUserDal>();
+            services.AddScoped<IContactUsDal, EfContactUsDal>();
 
             services.AddScoped<IServiceManager, ServiceManager>();
             services.AddScoped<IAbout2Service, About2Manager>();
@@ -44,6 +45,8 @@ namespace BusinessLayer.Container
             services.AddScoped<ICommentService, CommentManager>();
             services.AddScoped<IReservationService, ReservationManager>();
             services.AddScoped<IAppUserService, AppUserManager>();
+            services.AddScoped<IContactUsService, ContactUsManager>();
+
 
             services.AddScoped<IExcelService, ExcelManager>();
             services.AddScoped<IPdfService, PdfManager>();

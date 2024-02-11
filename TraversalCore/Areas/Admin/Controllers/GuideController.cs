@@ -1,5 +1,5 @@
 ﻿using BusinessLayer.Abstract;
-using BusinessLayer.ValidationRules;
+using BusinessLayer.ValidationRules.GuideValidate;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
