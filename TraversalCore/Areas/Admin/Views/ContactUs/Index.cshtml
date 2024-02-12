@@ -1,0 +1,38 @@
+﻿@model List<ContactUs>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Bize Ulaşın Mesajları</h1>
+<hr />
+<div class="container">
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Gönderen</th>
+                <th>Konu</th>
+                <th>Tarih</th>
+                <th>Sil</th>
+                <th>Mesajı Aç</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ContactUsId</td>
+                    <td>@item.NameSurname</td>
+                    <td>@item.Subject</td>
+                    <td>@item.MessageDate.ToString("dd MMMM yyyy")</td>
+                    <td><a href="/Admin/ContactUs/DeleteDestination/@item.ContactUsId" class="btn btn-danger btn-sm">Sil</a></td>
+                    <td><a href="/Admin/ContactUs/UpdateDestination/@item.ContactUsId" class="btn btn-info btn-sm">Mesajı Aç</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

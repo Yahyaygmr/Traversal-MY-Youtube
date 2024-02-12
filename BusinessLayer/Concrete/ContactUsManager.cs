@@ -19,6 +19,21 @@ namespace BusinessLayer.Concrete
             _dalManager = dalManager;
         }
 
+        public void ContactUsStatusChangeToFalse(int id)
+        {
+            _dalManager.ContactUs.ContactUsStatusChangeToFalse(id);
+        }
+
+        public List<ContactUs> GetListContactUsByFalse()
+        {
+            return _dalManager.ContactUs.GetListContactUsByFalse();
+        }
+
+        public List<ContactUs> GetListContactUsByTrue()
+        {
+            return _dalManager.ContactUs.GetListContactUsByTrue();
+        }
+
         public void TDelete(ContactUs entity)
         {
             _dalManager.ContactUs.Delete(entity);
