@@ -22,5 +22,6 @@ namespace DataAccessLayer.Abstract
         IReservationDal Reservation { get; }
         IAppUserDal AppUser { get; }
         IContactUsDal ContactUs { get; }
+        IAnnouncementDal Announcement { get; }
     }
 }

@@ -25,8 +25,9 @@ namespace BusinessLayer.Concrete
         private readonly IExcelService _excelService;
         private readonly IPdfService _pdfService;
         private readonly IContactUsService _contactUsService;
+        private readonly IAnnouncementService _announcementService;
 
-        public ServiceManager(IAbout2Service about2Service, IAboutService aboutService, IContactService contactService, IDestinationService destinationService, IFeature1Service feature1Service, IFeatureService featureService, IGuideService guideService, INewsletterService newsletterService, ISubAboutService subAboutService, ITestimonialService testimonialService, ICommentService commentService, IReservationService reservationService, IAppUserService appUserService, IExcelService excelService, IPdfService pdfService, IContactUsService contactUsService)
+        public ServiceManager(IAbout2Service about2Service, IAboutService aboutService, IContactService contactService, IDestinationService destinationService, IFeature1Service feature1Service, IFeatureService featureService, IGuideService guideService, INewsletterService newsletterService, ISubAboutService subAboutService, ITestimonialService testimonialService, ICommentService commentService, IReservationService reservationService, IAppUserService appUserService, IExcelService excelService, IPdfService pdfService, IContactUsService contactUsService, IAnnouncementService announcementService)
         {
             _about2Service = about2Service;
             _aboutService = aboutService;
@@ -44,6 +45,7 @@ namespace BusinessLayer.Concrete
             _excelService = excelService;
             _pdfService = pdfService;
             _contactUsService = contactUsService;
+            _announcementService = announcementService;
         }
 
         public IAbout2Service About2Service => _about2Service;
@@ -74,5 +76,7 @@ namespace BusinessLayer.Concrete
         public IPdfService pdfService => _pdfService;
 
         public IContactUsService ContactUsService => _contactUsService;
+
+        public IAnnouncementService AnnouncementService => _announcementService;
     }
 }
