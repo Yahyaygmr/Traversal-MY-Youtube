@@ -1,10 +1,15 @@
 using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
 using BusinessLayer.Container;
+using BusinessLayer.ValidationRules.AnnouncementValidate;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
+using DTOLayer.DTOs.AnnouncementDTOs;
 using EntityLayer.Concrete;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Build.Framework;
@@ -28,9 +33,14 @@ builder.Services.AddMvc(config =>
 builder.Services.AddMvc();
 
 builder.Services.ContainerDependencies();
+builder.Services.CustomValidator();
+
+builder.Services.AddAutoMapper(typeof(Program));
+
 
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
 
 var app = builder.Build();
 
@@ -48,7 +58,6 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAuthentication();
 app.UseRouting();
-
 app.UseAuthorization();
 
 app.MapControllerRoute(

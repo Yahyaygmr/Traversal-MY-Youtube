@@ -23,8 +23,9 @@ namespace DataAccessLayer.EntityFramework
         private readonly IReservationDal _reservationDal;
         private readonly IAppUserDal _appUserDal;
         private readonly IContactUsDal _contactUsDal;
+        private readonly IAnnouncementDal _announcementDal;
 
-        public EfDalManager(IAbout2Dal about2Dal, IAboutDal aboutDal, IContactDal contactDal, IDestinationDal destinationDal, IFeature1Dal feature1Dal, IFeatureDal featureDal, IGuideDal guideDal, INewsletterDal newsletterDal, ISubAboutDal subAboutDal, ITestimonialDal testimonialDal, ICommentDal commentDal, IReservationDal reservationDal, IAppUserDal appUserDal, IContactUsDal contactUsDal)
+        public EfDalManager(IAbout2Dal about2Dal, IAboutDal aboutDal, IContactDal contactDal, IDestinationDal destinationDal, IFeature1Dal feature1Dal, IFeatureDal featureDal, IGuideDal guideDal, INewsletterDal newsletterDal, ISubAboutDal subAboutDal, ITestimonialDal testimonialDal, ICommentDal commentDal, IReservationDal reservationDal, IAppUserDal appUserDal, IContactUsDal contactUsDal, IAnnouncementDal announcementDal)
         {
             _about2Dal = about2Dal;
             _aboutDal = aboutDal;
@@ -40,6 +41,7 @@ namespace DataAccessLayer.EntityFramework
             _reservationDal = reservationDal;
             _appUserDal = appUserDal;
             _contactUsDal = contactUsDal;
+            _announcementDal = announcementDal;
         }
 
         public IAboutDal About => _aboutDal;
@@ -65,5 +67,7 @@ namespace DataAccessLayer.EntityFramework
         public IAppUserDal AppUser => _appUserDal;
 
         public IContactUsDal ContactUs => _contactUsDal;
+
+        public IAnnouncementDal Announcement => _announcementDal;
     }
 }
