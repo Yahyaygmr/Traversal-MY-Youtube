@@ -23,6 +23,8 @@ builder.Services.AddIdentity<AppUser, AppRole>()
     .AddEntityFrameworkStores<Context>()
     .AddErrorDescriber<CustomIdentityValidator>()
     .AddEntityFrameworkStores<Context>();
+
+builder.Services.AddHttpClient();
 builder.Services.AddMvc(config =>
 {
     var policy = new AuthorizationPolicyBuilder()
