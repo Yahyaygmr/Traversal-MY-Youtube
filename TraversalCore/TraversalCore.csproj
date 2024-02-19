@@ -38,7 +38,6 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Members\Data\" />
-    <Folder Include="CQRS\Commands\" />
     <Folder Include="wwwroot\pdfreports\" />
     <Folder Include="wwwroot\userImages\" />
   </ItemGroup>

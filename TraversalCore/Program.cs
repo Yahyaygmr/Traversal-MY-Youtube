@@ -35,6 +35,10 @@ builder.Services.AddMvc(config =>
 });
 builder.Services.AddMvc();
 builder.Services.AddScoped<GetAllDestinationQueryHandler>();
+builder.Services.AddScoped<GetDestinationByIdQueryHandler>();
+builder.Services.AddScoped<CreateDestinationCommandHandler>();
+builder.Services.AddScoped<RemoveDestinationCommandHandler>();
+builder.Services.AddScoped<UpdateDestinationCommandHandler>();
 
 builder.Services.ContainerDependencies();
 builder.Services.CustomValidator();

@@ -23,13 +23,13 @@
                 <td>@item.Id</td>
                 <td>@item.City</td>
                 <td>@item.DayNight</td>
-                <td>@item.Price</td>
+                <td>@item.Price.ToString("c")</td>
                 <td>@item.Capacity</td>
-                <td><a href="#" class="btn btn-sm btn-danger">Sil</a></td>
-                <td><a href="#" class="btn btn-sm btn-info">Güncelle</a></td>
+                <td><a href="/Admin/DestinationCqrs/DeleteDestination/@item.Id" class="btn btn-sm btn-danger">Sil</a></td>
+                <td><a href="/Admin/DestinationCqrs/GetDestination/@item.Id" class="btn btn-sm btn-info">Güncelle</a></td>
             </tr>
         }
     </table>
-    <a href="#" class="btn btn-outline-success">+ Yeni Destination Ekle</a>
+    <a href="/Admin/DestinationCqrs/AddDestination/" class="btn btn-outline-success">+ Yeni Destination Ekle</a>
 </div>
 
