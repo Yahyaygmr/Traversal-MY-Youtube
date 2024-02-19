@@ -1,8 +1,12 @@
 ﻿using BusinessLayer.Abstract;
+using BusinessLayer.Abstract.AbstractUOW;
 using BusinessLayer.Concrete;
+using BusinessLayer.Concrete.ConcreteUOW;
 using BusinessLayer.ValidationRules.AnnouncementValidate;
 using DataAccessLayer.Abstract;
+using DataAccessLayer.Abstract.AbstractUOW;
 using DataAccessLayer.EntityFramework;
+using DataAccessLayer.UnitOfWork;
 using DTOLayer.DTOs.AnnouncementDTOs;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
@@ -55,6 +59,13 @@ namespace BusinessLayer.Container
 
             services.AddScoped<IExcelService, ExcelManager>();
             services.AddScoped<IPdfService, PdfManager>();
+
+
+            services.AddScoped<IAccountService, AccountManager>();
+            services.AddScoped<IAccountDal, EfAccountDal>();
+            services.AddScoped<IUowDal, UowDal>();
+
+
         }
         public static void CustomValidator(this IServiceCollection services)
         {
