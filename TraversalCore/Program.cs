@@ -13,6 +13,7 @@ using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Build.Framework;
+using TraversalCore.CQRS.Handlers.DestinationHandlers;
 using TraversalCore.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,6 +34,7 @@ builder.Services.AddMvc(config =>
     config.Filters.Add(new AuthorizeFilter(policy));
 });
 builder.Services.AddMvc();
+builder.Services.AddScoped<GetAllDestinationQueryHandler>();
 
 builder.Services.ContainerDependencies();
 builder.Services.CustomValidator();
