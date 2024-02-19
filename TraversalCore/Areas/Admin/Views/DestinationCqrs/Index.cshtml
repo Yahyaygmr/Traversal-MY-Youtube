@@ -1,0 +1,35 @@
+﻿@model List<GetAllDestinationQueryResult>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>CQRS Destination List</h1>
+<hr />
+<div class="container">
+    <table class="table table-hover">
+        <tr>
+            <th>#</th>
+            <th>Şehir</th>
+            <th>Gün-Gece</th>
+            <th>Fiyat</th>
+            <th>Kapasite</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.City</td>
+                <td>@item.DayNight</td>
+                <td>@item.Price.ToString("c")</td>
+                <td>@item.Capacity</td>
+                <td><a href="/Admin/DestinationCqrs/DeleteDestination/@item.Id" class="btn btn-sm btn-danger">Sil</a></td>
+                <td><a href="/Admin/DestinationCqrs/GetDestination/@item.Id" class="btn btn-sm btn-info">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Admin/DestinationCqrs/AddDestination/" class="btn btn-outline-success">+ Yeni Destination Ekle</a>
+</div>
+
