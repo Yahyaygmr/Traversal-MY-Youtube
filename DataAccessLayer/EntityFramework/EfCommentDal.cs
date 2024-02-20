@@ -25,5 +25,22 @@ namespace DataAccessLayer.EntityFramework
                 .Include(x => x.DEstination)
                 .ToList();
         }
+
+        public List<Comment> GetAllCommentsWithDestinationsAndUser()
+        {
+            return _context.Comments
+                .Include(x => x.DEstination)
+                .Include(x=> x.AppUser)
+                .ToList();
+        }
+
+        public List<Comment> GetAllCommentsWithDestinationsAndUserByDestinationId(int id)
+        {
+            return _context.Comments
+                .Include(x => x.DEstination)
+                .Include(x => x.AppUser)
+                .Where(x => x.DestinationId == id)
+                .ToList();
+        }
     }
 }

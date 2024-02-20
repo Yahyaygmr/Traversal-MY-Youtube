@@ -22,7 +22,7 @@ namespace TraversalCore.ViewComponents.Default
 
         public IViewComponentResult Invoke()
         {
-            var results = _serviceManager.DestinationService.TGetList();
+            var results = _serviceManager.DestinationService.TGetList().Take(6);
             return View(results);
         }
     }

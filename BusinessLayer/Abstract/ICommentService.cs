@@ -10,5 +10,7 @@ namespace BusinessLayer.Abstract
     public interface ICommentService : IGenericService<Comment>
     {
         List<Comment> GetAllCommentsWithDestinations();
+        List<Comment> TGetAllCommentsWithDestinationsAndUser();
+        List<Comment> GetAllCommentsWithDestinationsAndUserByDestinationId(int id);
     }
 }
