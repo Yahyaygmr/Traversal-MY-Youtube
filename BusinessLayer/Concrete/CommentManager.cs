@@ -24,6 +24,11 @@ namespace BusinessLayer.Concrete
             return _dalManager.Comment.GetAllCommentsWithDestinations();
         }
 
+        public List<Comment> GetAllCommentsWithDestinationsAndUserByDestinationId(int id)
+        {
+           return _dalManager.Comment.GetAllCommentsWithDestinationsAndUserByDestinationId(id);
+        }
+
         public void TDelete(Comment entity)
         {
             _dalManager.Comment.Delete(entity);
@@ -32,6 +37,11 @@ namespace BusinessLayer.Concrete
         public Comment TFindByCondition(Expression<Func<Comment, bool>> expression)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Comment> TGetAllCommentsWithDestinationsAndUser()
+        {
+            return _dalManager.Comment.GetAllCommentsWithDestinationsAndUser();
         }
 
         public Comment TGetById(int id)

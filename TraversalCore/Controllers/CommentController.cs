@@ -1,9 +1,11 @@
 ﻿using BusinessLayer.Abstract;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalCore.Controllers
 {
+    [AllowAnonymous]
     public class CommentController : Controller
     {
         private readonly IServiceManager _serviceManager;
