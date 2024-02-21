@@ -21,7 +21,7 @@ namespace BusinessLayer.Concrete
 
         public void TDelete(Destination entity)
         {
-           _dalManager.Destination.Delete(entity);
+            _dalManager.Destination.Delete(entity);
         }
 
         public Destination TFindByCondition(Expression<Func<Destination, bool>> expression)
@@ -33,6 +33,11 @@ namespace BusinessLayer.Concrete
         {
             return _dalManager.Destination.GetById(id);
 
+        }
+
+        public Destination TGetDestinationWithGuideById(int id)
+        {
+            return _dalManager.Destination.GetDestinationWithGuideById(id);
         }
 
         public List<Destination> TGetList()

@@ -1,8 +1,10 @@
 ﻿using BusinessLayer.Abstract;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalCore.Areas.Admin.Controllers
 {
+    [AllowAnonymous]
     [Area("Admin")]
     [Route("Admin/ContactUs")]
     public class ContactUsController : Controller
