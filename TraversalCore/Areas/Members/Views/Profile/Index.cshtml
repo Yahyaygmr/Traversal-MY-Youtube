@@ -1,35 +1,46 @@
 ﻿@model UserEditViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Profil Düzenleme";
     Layout = "~/Areas/Members/Views/Shared/_UserLayout.cshtml";
 }
 
-<h1>Profil Düzenleme Sayfası</h1>
-<form method="post" enctype="multipart/form-data"> 
-     <label>Adınız</label>
-     <input type="text" asp-for="Name" class="form-control" />
-     <br />
-      <label>Soaydınız</label>
-     <input type="text" asp-for="Surname" class="form-control" />
-     <br />
-    <label>Mail Adresiniz</label>
-    <input type="text" asp-for="Mail" class="form-control" />
-    <br />
-    <label>Şifre</label>
-    <input type="text" asp-for="Password" class="form-control" />
-    <br />
-    <label>Şifre Tekrar</label>
-    <input type="text" asp-for="ConfirmPassword" class="form-control" />
-    <br />
-    <label>Telefon Numarası</label>
-    <input type="text" asp-for="PhoneNumber" class="form-control" />
-    <br />
-    <div class="form-group">
-        <label>Resim Seç</label>
-        <input type="file" asp-for="Image"/>
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                <h6>Profil Düzenleme Sayfası</h6>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    <label>Adınız</label>
+                    <input type="text" asp-for="Name" class="form-control" />
+                    <br />
+                    <label>Soaydınız</label>
+                    <input type="text" asp-for="Surname" class="form-control" />
+                    <br />
+                    <label>Mail Adresiniz</label>
+                    <input type="text" asp-for="Mail" class="form-control" />
+                    <br />
+                    <label>Şifre</label>
+                    <input type="text" asp-for="Password" class="form-control" />
+                    <br />
+                    <label>Şifre Tekrar</label>
+                    <input type="text" asp-for="ConfirmPassword" class="form-control" />
+                    <br />
+                    <label>Telefon Numarası</label>
+                    <input type="text" asp-for="PhoneNumber" class="form-control" />
+                    <br />
+                    <div class="form-group">
+                        <label>Resim Seç</label>
+                        <input type="file" asp-for="Image" />
+                    </div>
+                    <br />
+                    <button class="btn btn-danger">Kaydet</button>
+                </form>
+
+            </div>
+        </div>
     </div>
-    <br />
-    <button class="btn btn-danger">Kaydet</button>
-</form>
+</div>
 

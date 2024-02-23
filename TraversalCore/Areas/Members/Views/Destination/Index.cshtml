@@ -1,18 +1,18 @@
 ﻿@model List<Destination>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Rotalar";
     Layout = "~/Areas/Members/Views/Shared/_UserLayout.cshtml";
 }
 
 <div class="row">
     <div class="col-12">
-        <h4>Aktif Tur Rotalarımız</h4>
         <div class="card mb-4">
             <div class="card-header pb-0">
-         @*        <h6>Aktif Tur Rotalarımız</h6> *@
+               <h6>Aktif Tur Rotalarımız</h6>
             </div>
-            <div class="card-body px-0 pt-0 pb-2">
+            <div class="card-body">
+
                 <div class="table-responsive p-0">
                     <table class="table align-items-center mb-0">
                         <thead>
@@ -23,7 +23,7 @@
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Kapasite</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fiyat</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Detay</th>
-                               
+
                             </tr>
                         </thead>
                         <tbody>
@@ -31,11 +31,11 @@
                             {
                                 <tr>
                                     <td>
-                                       @item.DestinationId
+                                        @item.DestinationId
                                     </td>
                                     <td>
                                         <p class="text-xs font-weight-bold mb-0">@item.City</p>
-                                    
+
                                     </td>
                                     <td class="align-middle text-center text-sm">
                                         <span class="badge badge-sm bg-gradient-success">@item.DayNight</span>
@@ -47,15 +47,17 @@
                                         @item.Price.ToString("c")
                                     </td>
                                     <td class="align-middle text-center">
-                                       <a href="#">Detay</a>
+                                        <a href="#">Detay</a>
                                     </td>
                                 </tr>
                             }
-                      
+
                         </tbody>
                     </table>
                 </div>
             </div>
+
+
         </div>
     </div>
 </div>

@@ -1,32 +1,43 @@
 ﻿@model Reservation
 
 @{
-    ViewData["Title"] = "NewReservation";
+    ViewData["Title"] = "Yeni Rezervasyon";
     Layout = "~/Areas/Members/Views/Shared/_UserLayout.cshtml";
 }
 
-<h1>Yeni Rezervasyon</h1>
-<form method="post">
-    <div class="form-group">
-        <label>Lokasyon</label>
-        @Html.DropDownListFor(x => x.DestinationId, (SelectList)ViewBag.Destinations, new { @class = "form-control" })
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                <h6>Yeni Rezervasyon</h6>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label>Lokasyon</label>
+                        @Html.DropDownListFor(x => x.DestinationId, (SelectList)ViewBag.Destinations, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Kişi Sayısı</label>
+                        @Html.TextBoxFor(x => x.PersonCount, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Rezervasyon Tarihi</label>
+                        <input type="date" asp-for="ReservationDate" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Varsa Eklemek İstedikleriniz</label>
+                        @Html.TextAreaFor(x => x.Description, 5, 1, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success">Rezervasyon Yap</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label>Kişi Sayısı</label>
-        @Html.TextBoxFor(x => x.PersonCount, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        <label>Rezervasyon Tarihi</label>
-       <input type="date" asp-for="ReservationDate" class="form-control"/>
-    </div>
-    <div class="form-group">
-        <label>Varsa Eklemek İstedikleriniz</label>
-        @Html.TextAreaFor(x => x.Description,5,1, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        <button class="btn btn-success">Rezervasyon Yap</button>
-    </div>
-</form>
+</div>
+
 <script>
     window.onload = (function () {
         alert('Rezervasyonunuz başlangıçta onay bekliyor şeklinde alınacaktır.Rezervasyon onaylanma süreci için "Güncel Rezervasyonlarım" menusunu takip etmeyi unutmayın.');
