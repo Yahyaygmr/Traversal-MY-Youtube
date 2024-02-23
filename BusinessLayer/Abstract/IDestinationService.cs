@@ -10,5 +10,6 @@ namespace BusinessLayer.Abstract
     public interface IDestinationService : IGenericService<Destination>
     {
         Destination TGetDestinationWithGuideById(int id);
+        List<Destination> TGetLastFourDestinations();
     }
 }

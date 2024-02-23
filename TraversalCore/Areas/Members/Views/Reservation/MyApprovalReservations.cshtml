@@ -1,40 +1,51 @@
 ﻿@model List<Reservation>
 
 @{
-    ViewData["Title"] = "MyApprovalReservations";
+    ViewData["Title"] = "Onay Bekleyen Rezervasyonlar";
     Layout = "~/Areas/Members/Views/Shared/_UserLayout.cshtml";
 }
 
-<h1>Onay Bekleyen Rezervasyonlar</h1>
-<hr />
-<div class="container">
-    @if (Model.Count < 1)
-    {
-        <h5 class="alert alert-warning">Şuanda Gösterilecek Bir Rezervasyon Yok.</h5>
-    }
-    else
-    {
-        <table class="table table-hover">
-            <tr>
-                <th>#</th>
-                <th>Lokasyon</th>
-                <th>Kişi Sayısı</th>
-                <th>Rezervasyon Tarihi</th>
-                <th>Durum</th>
-            </tr>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.ReservationId</td>
-                    <td>@item.Destination.City</td>
-                    <td>@item.PersonCount</td>
-                    <td>@item.ReservationDate</td>
-                    <td>@item.Status</td>
-                </tr>
-            }
-        </table>
-    }
 
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                <h6>Onay Bekleyen Rezervasyonlar</h6>
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    @if (Model.Count < 1)
+                    {
+                        <h5 class="alert alert-warning">Şuanda Gösterilecek Bir Rezervasyon Yok.</h5>
+                    }
+                    else
+                    {
+                        <table class="table table-hover">
+                            <tr>
+                                <th>#</th>
+                                <th>Lokasyon</th>
+                                <th>Kişi Sayısı</th>
+                                <th>Rezervasyon Tarihi</th>
+                                <th>Durum</th>
+                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.ReservationId</td>
+                                    <td>@item.Destination.City</td>
+                                    <td>@item.PersonCount</td>
+                                    <td>@item.ReservationDate</td>
+                                    <th>@item.Status</th>
+                                </tr>
+                            }
+                        </table>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 
 

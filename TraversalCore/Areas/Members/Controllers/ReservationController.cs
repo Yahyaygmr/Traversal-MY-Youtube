@@ -8,8 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace TraversalCore.Areas.Members.Controllers
 {
     [Area("Members")]
-    [Route("Members/[controller]/[action]")]
-    [AllowAnonymous]
+    [Route("Members/Reservation")]
     public class ReservationController : Controller
     {
         private readonly IServiceManager _serviceManager;
@@ -20,19 +19,21 @@ namespace TraversalCore.Areas.Members.Controllers
             _serviceManager = serviceManager;
             _userManager = userManager;
         }
-
+        [Route("MyCurrentReservations")]
         public async Task<IActionResult> MyCurrentReservations()
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
             var values = _serviceManager.ReservationService.GetListReservationByAccepted(user.Id);
             return View(values);
         }
+        [Route("MyOldtReservations")]
         public async Task<IActionResult> MyOldtReservations()
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
             var values = _serviceManager.ReservationService.GetListReservationByPrevious(user.Id);
             return View(values);
         }
+        [Route("MyApprovalReservations")]
         public async Task<IActionResult> MyApprovalReservations()
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
@@ -40,6 +41,7 @@ namespace TraversalCore.Areas.Members.Controllers
             return View(values);
         }
         [HttpGet]
+        [Route("NewReservation")]
         public IActionResult NewReservation()
         {
             ViewBag.Destinations = GetDestinations();
@@ -47,13 +49,15 @@ namespace TraversalCore.Areas.Members.Controllers
 
         }
         [HttpPost]
-        public IActionResult NewReservation(Reservation reservation)
+        [Route("NewReservation")]
+        public async Task<IActionResult> NewReservation(Reservation reservation)
         {
-            reservation.AppUserId = 7;
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            reservation.AppUserId = user.Id;
             reservation.Status = "Onay Bekliyor";
             _serviceManager.ReservationService.TInsert(reservation);
 
-            return RedirectToAction("MyCurrentReservations","Reservation",new {area="Members"});
+            return RedirectToAction("MyApprovalReservations", "Reservation");
         }
         private SelectList GetDestinations()
         {
