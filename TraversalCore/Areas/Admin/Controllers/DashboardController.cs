@@ -6,11 +6,12 @@ namespace TraversalCore.Areas.Admin.Controllers
     [Route("Admin/Dashboard")]
     public class DashboardController : Controller
     {
+        
         [Route("")]
         [Route("Index")]
         public IActionResult Index()
         {
-            return View(new { area = "Admin" });
+            return View();
         }
     }
 }

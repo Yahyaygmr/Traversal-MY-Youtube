@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -9,8 +10,16 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
+    
     public class NewsletterManager : INewsletterService
     {
+        private readonly IDalManager _dalManager;
+
+        public NewsletterManager(IDalManager dalManager)
+        {
+            _dalManager = dalManager;
+        }
+
         public void TDelete(Newsletter entity)
         {
             throw new NotImplementedException();
@@ -28,7 +37,7 @@ namespace BusinessLayer.Concrete
 
         public List<Newsletter> TGetList()
         {
-            throw new NotImplementedException();
+            return _dalManager.Newsletter.GetList();
         }
 
         public List<Newsletter> TGetListById(Expression<Func<Newsletter, bool>> expression)
@@ -38,7 +47,7 @@ namespace BusinessLayer.Concrete
 
         public void TInsert(Newsletter entity)
         {
-            throw new NotImplementedException();
+            _dalManager.Newsletter.Insert(entity);
         }
 
         public void TUpdate(Newsletter entity)

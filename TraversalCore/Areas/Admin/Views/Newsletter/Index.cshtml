@@ -1,0 +1,38 @@
+﻿@model List<Newsletter>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="col-xxl">
+    <div class="card mb-4">
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <h5 class="mb-0">Tur Rotaları</h5>
+        </div>
+        <div class="card-body">
+            <div class="container">
+
+                <table class="table table-hover" id="tableSearch">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Şehir</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                            @foreach (var item in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <td>@count</td>
+                                    <td>@item.Mail</td>
+                                </tr>
+                            }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

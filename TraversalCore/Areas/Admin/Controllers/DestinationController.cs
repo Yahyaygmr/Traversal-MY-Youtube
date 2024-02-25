@@ -1,12 +1,13 @@
 ﻿using BusinessLayer.Abstract;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace TraversalCore.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/Destination")]
-   
+
     public class DestinationController : Controller
     {
         private readonly IServiceManager _serviceManager;
@@ -26,6 +27,7 @@ namespace TraversalCore.Areas.Admin.Controllers
         [Route("AddDestination")]
         public IActionResult AddDestination()
         {
+            ViewBag.guides = GetGuides();
             return View();
         }
         [HttpPost]
@@ -33,6 +35,7 @@ namespace TraversalCore.Areas.Admin.Controllers
         public IActionResult AddDestination(Destination destination)
         {
             destination.Status = true;
+            destination.CreatedDate = DateTime.Now;
             if (ModelState.IsValid)
             {
                 _serviceManager.DestinationService.TInsert(destination);
@@ -54,6 +57,7 @@ namespace TraversalCore.Areas.Admin.Controllers
         [Route("UpdateDestination/{id}")]
         public IActionResult UpdateDestination(int id)
         {
+            ViewBag.guides = GetGuides();
             var dest = _serviceManager.DestinationService.TGetById(id);
             return View(dest);
         }
@@ -62,8 +66,18 @@ namespace TraversalCore.Areas.Admin.Controllers
 
         public IActionResult UpdateDestination(Destination destination)
         {
+            destination.CreatedDate = DateTime.Now;
             _serviceManager.DestinationService.TUpdate(destination);
             return RedirectToAction("Index");
+        }
+        private List<SelectListItem> GetGuides()
+        {
+            return (from x in _serviceManager.GuideService.TGetList()
+                    select new SelectListItem
+                    {
+                        Text = x.Name,
+                        Value = x.GuideId.ToString()
+                    }).ToList();
         }
     }
 }

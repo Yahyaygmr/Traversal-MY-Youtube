@@ -1,40 +1,52 @@
 ﻿@model List<Reservation>
 
 @{
-    ViewData["Title"] = "ReservationUser";
+    ViewData["Title"] = "Rezervasyon Geçmişi";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
 }
 
-<h1><span class="text-warning">@ViewBag.User</span> Geçmiş Rezervasyonları</h1>
-<hr />
-<div class="container">
-    @if (Model.Count < 1)
-    {
-        <h5 class="alert alert-warning">Şuanda gösterilecek bir rezervasyon yok...</h5>
-    }
-    else
-    {
-        <table class="table table-hover">
-            <tr>
-                <th>#</th>
-                <th>Lokasyon</th>
-                <th>Kişi Sayısı</th>
-                <th>Rezervasyon Tarihi</th>
-                <th>Durum</th>
-                <th>Detaylar</th>
-            </tr>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.ReservationId</td>
-                    <td>@item.Destination.City</td>
-                    <td>@item.PersonCount</td>
-                    <td>@item.ReservationDate.ToString("dd MMMM yyyy HH:mm")</td>
-                    <td>@item.Status</td>
-                    <td><a href="#" class="btn btn-sm btn-secondary">Detay</a></td>
-                </tr>
-            }
-        </table>
-    }
 
+<div class="col-xxl">
+    <div class="card mb-4">
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <h5 class="mb-0"><span class="text-warning">@ViewBag.User</span> Geçmiş Rezervasyonları</h5>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                @if (Model.Count < 1)
+                {
+                    <h5 class="alert alert-warning">Şuanda gösterilecek bir rezervasyon yok...</h5>
+                }
+                else
+                {
+                    <table class="table table-hover">
+                        <tr>
+                            <th>#</th>
+                            <th>Lokasyon</th>
+                            <th>Kişi Sayısı</th>
+                            <th>Rezervasyon Tarihi</th>
+                            <th>Durum</th>
+                            <th>Detaylar</th>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <td>@count</td>
+                                <td>@item.Destination.City</td>
+                                <td>@item.PersonCount</td>
+                                <td>@item.ReservationDate.ToString("dd MMMM yyyy HH:mm")</td>
+                                <td>@item.Status</td>
+                                <td><a href="#" class="btn btn-sm btn-secondary">Detay</a></td>
+                            </tr>
+                        }
+                    </table>
+                }
+
+            </div>
+        </div>
+    </div>
 </div>
+
+

@@ -1,38 +1,48 @@
 ﻿@model List<ContactUs>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Bize Ulaşın Mesajları";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
 }
+<div class="col-xxl">
+    <div class="card mb-4">
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <h5 class="mb-0">Bize Ulaşın Mesajları</h5>
+        </div>
+        <div class="card-body">
+            <div class="container">
 
-<h1>Bize Ulaşın Mesajları</h1>
-<hr />
-<div class="container">
+                <table class="table table-hover" id="tableSearch">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Gönderen</th>
+                            <th>Konu</th>
+                            <th>Tarih</th>
+                            <th>Sil</th>
+                            <th>Mesajı Aç</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <td>@count</td>
+                                <td>@item.NameSurname</td>
+                                <td>@item.Subject</td>
+                                <td>@item.MessageDate.ToString("dd MMMM yyyy")</td>
+                                <td><a href="/Admin/ContactUs/DeleteDestination/@item.ContactUsId" class="btn btn-danger btn-sm">Sil</a></td>
+                                <td><a href="/Admin/ContactUs/UpdateDestination/@item.ContactUsId" class="btn btn-info btn-sm">Mesajı Aç</a></td>
+                            </tr>
+                        }
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Gönderen</th>
-                <th>Konu</th>
-                <th>Tarih</th>
-                <th>Sil</th>
-                <th>Mesajı Aç</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.ContactUsId</td>
-                    <td>@item.NameSurname</td>
-                    <td>@item.Subject</td>
-                    <td>@item.MessageDate.ToString("dd MMMM yyyy")</td>
-                    <td><a href="/Admin/ContactUs/DeleteDestination/@item.ContactUsId" class="btn btn-danger btn-sm">Sil</a></td>
-                    <td><a href="/Admin/ContactUs/UpdateDestination/@item.ContactUsId" class="btn btn-info btn-sm">Mesajı Aç</a></td>
-                </tr>
-            }
+                    </tbody>
+                </table>
+            </div>
 
-        </tbody>
-    </table>
+        </div>
+    </div>
 </div>
+
