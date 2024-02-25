@@ -1,46 +1,56 @@
 ﻿@model List<AppUser>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Kullanıcı Hesapları";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
 }
-<h1>Kullanıcılar</h1>
-<hr />
-<div class="container">
+<div class="col-xxl">
+    <div class="card mb-4">
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <h5 class="mb-0">Kullanıcı Hesapları</h5>
+        </div>
+        <div class="card-body">
+            <div class="container">
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Ad Soyad</th>
-                <th>Kullanıcı Adı</th>
-                <th>Mail</th>
-                <th>Düzenle</th>
-                <th>Sil</th>
-                <th>Yorumlar</th>
-                <th>Tur Geçmişi</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Name @item.Surname</td>
-                    <td>@item.UserName</td>
-                    <td>@item.Email</td>
-                    <td><a href="/Admin/DeleteUser/@item.Id" class="btn btn-danger btn-sm">Sil</a></td>
-                    <td><a href="/Admin/User/EditUser/@item.Id" class="btn btn-warning btn-sm">Düzenle</a></td>
-                    <td><a href="/Admin/User/CommentUser/@item.Id" class="btn btn-info btn-sm">Yorumlar</a></td>
-                    <td><a href="/Admin/User/ReservationUser/@item.Id" class="btn btn-secondary btn-sm">Tur Geçmişi</a></td>
-                </tr>
-            }
+                <table class="table table-hover" id="tableSearch">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Ad Soyad</th>
+                            <th>Kullanıcı Adı</th>
+                            <th>Mail</th>
+                            <th>Düzenle</th>
+                            <th>Sil</th>
+                            <th>Yorumlar</th>
+                            <th>Tur Geçmişi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <td>@count</td>
+                                <td>@item.Name @item.Surname</td>
+                                <td>@item.UserName</td>
+                                <td>@item.Email</td>
+                                <td><a href="/Admin/DeleteUser/@item.Id" class="btn btn-danger btn-sm">Sil</a></td>
+                                <td><a href="/Admin/User/EditUser/@item.Id" class="btn btn-warning btn-sm">Düzenle</a></td>
+                                <td><a href="/Admin/User/CommentUser/@item.Id" class="btn btn-info btn-sm">Yorumlar</a></td>
+                                <td><a href="/Admin/User/ReservationUser/@item.Id" class="btn btn-secondary btn-sm">Tur Geçmişi</a></td>
+                            </tr>
+                        }
 
-        </tbody>
-    </table>
-    <div class="my-4">
-        <a href="/Login/SignUp/" class="btn btn-outline-primary">+ Yeni Kullanıcı Ekle</a>
+                    </tbody>
+                </table>
+                <div class="my-4">
+                    <a href="/Login/SignUp/" class="btn btn-outline-primary">+ Yeni Kullanıcı Ekle</a>
+                </div>
+
+
+            </div>
+        </div>
     </div>
-
-
 </div>
+

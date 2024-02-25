@@ -18,6 +18,12 @@ namespace TraversalCore.Areas.Members.Controllers
         public async Task<IActionResult> Index()
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            List<string> roleNames = (List<string>)await _userManager.GetRolesAsync(user);
+            
+               if( roleNames.Contains("Admin"))
+                {
+                    ViewBag.RoleName = "Admin";
+                }
             ViewBag.UserName = user.Name + " " + user.Surname.ToUpper();
             ViewBag.UserImage = user.ImageUrl;
             return View();

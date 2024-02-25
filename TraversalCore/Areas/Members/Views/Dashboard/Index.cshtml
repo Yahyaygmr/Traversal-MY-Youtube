@@ -22,7 +22,14 @@
                             @ViewBag.UserName
                         </h5>
                         <p class="mb-0 font-weight-bold text-sm">
-                           Hoşgeldiniz
+                            Hoşgeldiniz /@if (ViewBag.RoleName == "Admin")
+                            {
+                                <a href="/Admin/Dashboard/Index"> Admin</a>
+                            }
+                            else
+                            {
+                                <span>Kullanıcı</span>
+                            }
                         </p>
                     </div>
                 </div>

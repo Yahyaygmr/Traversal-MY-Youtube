@@ -1,7 +1,8 @@
 ﻿@model List<Guide>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Rehberler";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
 }
 <style>
     .switch {
@@ -67,67 +68,77 @@ input:checked + .slider {
 }
 
 </style>
-<h1>Rehberler</h1>
-<hr />
-<div class="container">
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Görsel</th>
-                <th>Ad Soyad</th>
-                <th>Açıklama</th>
-                <th>Durum</th>
-                <th>Sil</th>
-                <th>Düzenle</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.GuideId</td>
-                    <td>
-                        <div class="avatar flex-shrink-0 me-3">
-                            <img src="@item.Image" alt="User" class="rounded" />
-                        </div>
-                    </td>
-                    <td>@item.Name</td>
-                    <td>@item.Description</td>
-                    @if(item.Status)
-                    {
-                        <td>
-                            <label class="switch">
-                                <a href="/Admin/Guide/ChangeToFalse/@item.GuideId">
-                                    <input type="checkbox" @(item.Status ? "checked" : "") disabled>
-                                    <span class="slider"></span>
-                                </a>
-                            </label>
-                        </td>
-                    }
-                    else
-                    {
-                        <td>
-                            <label class="switch">
-                                <a href="/Admin/Guide/ChangeToTrue/@item.GuideId">
-                                    <input type="checkbox" @(item.Status ? "checked" : "") disabled>
-                                    <span class="slider"></span>
-                                </a>
-                            </label>
-                        </td>
-                    }
-                
-                    <td><a href="/Admin/Guide/DeleteGuide/@item.GuideId" class="btn btn-danger btn-sm">Sil</a></td>
-                    <td><a href="/Admin/Guide/EditGuide/@item.GuideId" class="btn btn-warning btn-sm">Düzenle</a></td>
-                </tr>
-            }
+<div class="col-xxl">
+    <div class="card mb-4">
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <h5 class="mb-0">Rehbeler</h5>
+        </div>
+        <div class="card-body">
+            <div class="container">
 
-        </tbody>
-    </table>
-    <div class="my-4">
-        <a href="/Admin/Guide/CreateGuide/" class="btn btn-outline-primary">+ Yeni Rehber Ekle</a>
+                <table class="table table-hover" id="tableSearch">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Görsel</th>
+                            <th>Ad Soyad</th>
+                            <th>Açıklama</th>
+                            <th>Durum</th>
+                            <th>Sil</th>
+                            <th>Düzenle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <td>@item.GuideId</td>
+                                <td>
+                                    <div class="avatar flex-shrink-0 me-3">
+                                        <img src="@item.Image" alt="User" class="rounded" />
+                                    </div>
+                                </td>
+                                <td>@item.Name</td>
+                                <td>@item.Description</td>
+                                @if (item.Status)
+                                {
+                                    <td>
+                                        <label class="switch">
+                                            <a href="/Admin/Guide/ChangeToFalse/@item.GuideId">
+                                                <input type="checkbox" @(item.Status ? "checked" : "") disabled>
+                                                <span class="slider"></span>
+                                            </a>
+                                        </label>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <label class="switch">
+                                            <a href="/Admin/Guide/ChangeToTrue/@item.GuideId">
+                                                <input type="checkbox" @(item.Status ? "checked" : "") disabled>
+                                                <span class="slider"></span>
+                                            </a>
+                                        </label>
+                                    </td>
+                                }
+
+                                <td><a href="/Admin/Guide/DeleteGuide/@item.GuideId" class="btn btn-danger btn-sm">Sil</a></td>
+                                <td><a href="/Admin/Guide/EditGuide/@item.GuideId" class="btn btn-warning btn-sm">Düzenle</a></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <div class="my-4">
+                    <a href="/Admin/Guide/CreateGuide/" class="btn btn-outline-primary">+ Yeni Rehber Ekle</a>
+                </div>
+
+
+            </div>
+        </div>
     </div>
-
-
 </div>
+

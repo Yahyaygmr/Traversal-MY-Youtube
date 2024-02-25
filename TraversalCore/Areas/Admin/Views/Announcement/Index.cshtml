@@ -1,32 +1,45 @@
 ﻿@model List<AnnouncementListDto>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Duyurular";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
 }
-
-<h1>Duyuru Listesi</h1>
-<hr />
-<div class="container">
-    <table class="table table-hover">
-        <tr>
-            <th>#</th>
-            <th>Başlık</th>
-            <th>İçerik</th>
-            <th>Sil</th>
-            <th>Güncelle</th>
-            <th>Detay</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.AnnouncementId</td>
-                <td>@item.Title</td>
-                <td>@item.Content</td>
-                <td><a href="/Admin/Announcement/DeleteAnnouncement/@item.AnnouncementId" class="btn btn-outline-danger btn-sm">Sil</a></td>
-                <td><a href="/Admin/Announcement/UpdateAnnouncement/@item.AnnouncementId" class="btn btn-outline-warning btn-sm">Güncelle</a></td>
-                <td><a href="#" class="btn btn-outline-dark btn-sm">Detay</a></td>
-            </tr>
-        }
-    </table>
-    <a href="/Admin/Announcement/AddAnnouncement" class="btn btn-info">+ Duyuru Oluştur</a>
+<div class="col-xxl">
+    <div class="card mb-4">
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <h5 class="mb-0">Duyuru Listesi</h5>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <table class="table table-hover">
+                    <tr>
+                        <th>#</th>
+                        <th>Başlık</th>
+                        <th>İçerik</th>
+                        <th>Sil</th>
+                        <th>Güncelle</th>
+                        <th>Detay</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <td>@count</td>
+                            <td>@item.Title</td>
+                            <td>@item.Content</td>
+                            <td><a href="/Admin/Announcement/DeleteAnnouncement/@item.AnnouncementId" class="btn btn-outline-danger btn-sm">Sil</a></td>
+                            <td><a href="/Admin/Announcement/UpdateAnnouncement/@item.AnnouncementId" class="btn btn-outline-warning btn-sm">Güncelle</a></td>
+                            <td><a href="#" class="btn btn-outline-dark btn-sm">Detay</a></td>
+                        </tr>
+                    }
+                </table>
+                <div class="mt-4">
+                    <a href="/Admin/Announcement/AddAnnouncement" class="btn btn-info">+ Duyuru Oluştur</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
 </div>
+
+
