@@ -3,27 +3,43 @@
 
 <h4>Eğitimde Kullandığımız Teknoolojiler</h4>
 - MsSql
+
 - PostgreSql
+- 
 - EntityFramework
+- 
 . DbFirst
+  
 - N katmanlı Mimari
+- 
 - Repository Design Pattern
+- 
 - CQRS Design Pattern
+- 
 -MediatR
+
 - Unit Of Work
+- 
 - DTOs
+- 
 - Fluent Validation
 - AutoMapper
+- 
 - Identity
+- 
 - Ajax
+- 
 - SignalR
+- 
 - Rest Api
+- 
 - Localization
 
 <h1>Proje Görselleri</h1>
 
 <h4>Veritabanı</h4>
-![Ekran görüntüsü 2024-02-25 185013](https://github.com/Yahyaygmr/Traversal-MY-Youtube/assets/101245826/a12980a6-a901-4509-9ed9-a23c82088843)
+
+![Ekran görüntüsü 2024-02-25 185013](https://github.com/Yahyaygmr/Traversal-MY-Youtube/assets/101245826/6ed33986-2a55-424b-a411-b95ef815d25d)
 
 <h4>Ön Yüz</h4>
 
