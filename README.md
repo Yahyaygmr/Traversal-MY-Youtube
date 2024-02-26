@@ -1,5 +1,5 @@
 <h1>Projeye Genel Bakış</h1>
-- Youtube da bulunan Muret Yücedağ hocamızın Traversal Rezervasyon Mini Core Projesi eğitimini takiben Asp .Net Core 6.0 ile hazırlamış olduğum proje.
+- Youtube da bulunan Murat Yücedağ hocamızın Traversal Rezervasyon Mini Core Projesi eğitimini takiben Asp .Net Core 6.0 ile hazırlamış olduğum proje.
 
 <h4>Eğitimde Kullandığımız Teknoolojiler</h4>
 - PostgreSql
