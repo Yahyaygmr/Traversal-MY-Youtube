@@ -2,37 +2,23 @@
 - Youtube da bulunan Muret Yücedağ hocamızın Traversal Rezervasyon Mini Core Projesi eğitimini takiben Asp .Net Core 6.0 ile hazırlamış olduğum proje.
 
 <h4>Eğitimde Kullandığımız Teknoolojiler</h4>
-- MsSql
-
 - PostgreSql
-- 
+- MsSql
+- PostgreSql
 - EntityFramework
-- 
-. DbFirst
-  
+-  DbFirst
 - N katmanlı Mimari
-- 
 - Repository Design Pattern
-- 
 - CQRS Design Pattern
-- 
 -MediatR
-
 - Unit Of Work
-- 
 - DTOs
-- 
 - Fluent Validation
 - AutoMapper
-- 
 - Identity
-- 
 - Ajax
-- 
 - SignalR
-- 
 - Rest Api
-- 
 - Localization
 
 <h1>Proje Görselleri</h1>
