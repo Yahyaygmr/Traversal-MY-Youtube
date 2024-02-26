@@ -4,7 +4,6 @@
 <h4>Eğitimde Kullandığımız Teknolojiler</h4>
 - PostgreSql
 - MsSql
-- PostgreSql
 - EntityFramework
 -  DbFirst
 - N katmanlı Mimari
